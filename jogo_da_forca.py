@@ -4,7 +4,7 @@ def jogar_forca():
     palavra = escolher_palavra()
     letras_user = []
     chances = 6
-
+    letras_usadas = []
     erros = 0
 
     while True:
@@ -19,6 +19,7 @@ def jogar_forca():
 
         print(f"\nVocê ainda tem {chances - erros} chances.")
         tentativa = input("Advinhe uma letra: ").lower()
+        letras_usadas.append(tentativa)
 
         if tentativa in letras_user:
             print("Você já tentou essa letra.")
@@ -27,6 +28,7 @@ def jogar_forca():
             if tentativa not in palavra:
                 erros += 1
 
+        print('Você usou: ' + ',' .join(letras_usadas))
         if erros == chances:
             break
 
